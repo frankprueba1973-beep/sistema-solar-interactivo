@@ -4,6 +4,7 @@ export interface Planet {
   nameEs: string;
   color: string;
   colorDark: string;
+  colorLight: string;
   radius: number;
   orbitRadius: number;
   orbitalPeriod: number;
@@ -27,6 +28,11 @@ export interface Planet {
   yearLength: string;
   angle: number;
   rotationAngle: number;
+  discoveredBy?: string;
+  discoveryYear?: number;
+  emoji: string;
+  density: number;
+  magneticField: boolean;
 }
 
 export const PLANETS_DATA: Omit<Planet, 'angle' | 'rotationAngle'>[] = [
@@ -35,7 +41,8 @@ export const PLANETS_DATA: Omit<Planet, 'angle' | 'rotationAngle'>[] = [
     name: 'Mercury',
     nameEs: 'Mercurio',
     color: '#b5b5b5',
-    colorDark: '#6b6b6b',
+    colorDark: '#5a5a5a',
+    colorLight: '#d9d9d9',
     radius: 4,
     orbitRadius: 65,
     orbitalPeriod: 0.24,
@@ -51,10 +58,11 @@ export const PLANETS_DATA: Omit<Planet, 'angle' | 'rotationAngle'>[] = [
     description: 'El planeta más pequeño y cercano al Sol. No tiene atmósfera significativa y sus temperaturas varían extremadamente entre el día y la noche. Su superficie está cubierta de cráteres similares a los de la Luna.',
     funFacts: [
       'Un día en Mercurio dura 59 días terrestres',
-      'Es el planeta más rápido del sistema solar',
+      'Es el planeta más rápido del sistema solar (170,500 km/h)',
       'No tiene lunas ni anillos',
       'Su superficie puede alcanzar 430°C durante el día',
       'Se ha encogido más de 14 km desde su formación',
+      'Tiene hielo de agua en cráteres polares permanentemente oscuros',
     ],
     moons: 0,
     hasRings: false,
@@ -63,13 +71,18 @@ export const PLANETS_DATA: Omit<Planet, 'angle' | 'rotationAngle'>[] = [
     escapeVelocity: '4.3 km/s',
     dayLength: '58.6 días terrestres',
     yearLength: '88 días terrestres',
+    discoveredBy: 'Conocido desde la antigüedad',
+    emoji: '☿',
+    density: 5.43,
+    magneticField: true,
   },
   {
     id: 'venus',
     name: 'Venus',
     nameEs: 'Venus',
     color: '#e8cda0',
-    colorDark: '#a08050',
+    colorDark: '#8a6830',
+    colorLight: '#f5e4c8',
     radius: 7,
     orbitRadius: 95,
     orbitalPeriod: 0.62,
@@ -89,6 +102,7 @@ export const PLANETS_DATA: Omit<Planet, 'angle' | 'rotationAngle'>[] = [
       'La presión en su superficie es 90 veces la de la Tierra',
       'Llueve ácido sulfúrico pero se evapora antes de llegar al suelo',
       'Es el objeto más brillante en el cielo nocturno después de la Luna',
+      'Los vientos en su atmósfera superior alcanzan 360 km/h',
     ],
     moons: 0,
     hasRings: false,
@@ -97,13 +111,18 @@ export const PLANETS_DATA: Omit<Planet, 'angle' | 'rotationAngle'>[] = [
     escapeVelocity: '10.4 km/s',
     dayLength: '243 días terrestres',
     yearLength: '225 días terrestres',
+    discoveredBy: 'Conocido desde la antigüedad',
+    emoji: '♀',
+    density: 5.24,
+    magneticField: false,
   },
   {
     id: 'earth',
     name: 'Earth',
     nameEs: 'Tierra',
     color: '#4da6ff',
-    colorDark: '#1a5c99',
+    colorDark: '#1a4d80',
+    colorLight: '#80c4ff',
     radius: 8,
     orbitRadius: 130,
     orbitalPeriod: 1,
@@ -123,6 +142,7 @@ export const PLANETS_DATA: Omit<Planet, 'angle' | 'rotationAngle'>[] = [
       'La Luna se aleja 3.8 cm cada año',
       'El 97% del agua de la Tierra está en los océanos',
       'Es el planeta más denso del sistema solar',
+      'La atmósfera se extiende hasta 10,000 km',
     ],
     moons: 1,
     hasRings: false,
@@ -131,13 +151,18 @@ export const PLANETS_DATA: Omit<Planet, 'angle' | 'rotationAngle'>[] = [
     escapeVelocity: '11.2 km/s',
     dayLength: '24 horas',
     yearLength: '365.25 días',
+    discoveredBy: 'N/A',
+    emoji: '🌍',
+    density: 5.51,
+    magneticField: true,
   },
   {
     id: 'mars',
     name: 'Mars',
     nameEs: 'Marte',
     color: '#e85d3a',
-    colorDark: '#8b2500',
+    colorDark: '#7a2010',
+    colorLight: '#ff8a6a',
     radius: 5,
     orbitRadius: 170,
     orbitalPeriod: 1.88,
@@ -157,6 +182,7 @@ export const PLANETS_DATA: Omit<Planet, 'angle' | 'rotationAngle'>[] = [
       'Las puestas de sol en Marte son azules',
       'Tiene casquetes polares de hielo de CO₂ y agua',
       'Se han explorado con más de 40 misiones espaciales',
+      'Un robot llamado Perseverance explora su superficie desde 2021',
     ],
     moons: 2,
     hasRings: false,
@@ -165,13 +191,18 @@ export const PLANETS_DATA: Omit<Planet, 'angle' | 'rotationAngle'>[] = [
     escapeVelocity: '5.0 km/s',
     dayLength: '24 horas 37 minutos',
     yearLength: '687 días terrestres',
+    discoveredBy: 'Conocido desde la antigüedad',
+    emoji: '♂',
+    density: 3.93,
+    magneticField: false,
   },
   {
     id: 'jupiter',
     name: 'Jupiter',
     nameEs: 'Júpiter',
     color: '#c8a45c',
-    colorDark: '#7a5c2e',
+    colorDark: '#6b5530',
+    colorLight: '#e8cc8a',
     radius: 18,
     orbitRadius: 230,
     orbitalPeriod: 11.86,
@@ -191,6 +222,7 @@ export const PLANETS_DATA: Omit<Planet, 'angle' | 'rotationAngle'>[] = [
       'Tiene el día más corto de todos los planetas (9.9h)',
       'Su campo magnético es 20,000 veces más fuerte que el de la Tierra',
       'Tiene al menos 95 lunas conocidas',
+      'Sus lunas Europa y Ganímedes podrían albergar océanos subterráneos',
     ],
     moons: 95,
     hasRings: true,
@@ -199,13 +231,18 @@ export const PLANETS_DATA: Omit<Planet, 'angle' | 'rotationAngle'>[] = [
     escapeVelocity: '59.5 km/s',
     dayLength: '9 horas 56 minutos',
     yearLength: '11.86 años terrestres',
+    discoveredBy: 'Conocido desde la antigüedad',
+    emoji: '♃',
+    density: 1.33,
+    magneticField: true,
   },
   {
     id: 'saturn',
     name: 'Saturn',
     nameEs: 'Saturno',
     color: '#e8d5a3',
-    colorDark: '#a09060',
+    colorDark: '#8a7a50',
+    colorLight: '#f5ecd0',
     radius: 15,
     orbitRadius: 290,
     orbitalPeriod: 29.46,
@@ -225,6 +262,7 @@ export const PLANETS_DATA: Omit<Planet, 'angle' | 'rotationAngle'>[] = [
       'Los vientos pueden alcanzar 1,800 km/h',
       'Su luna Titán tiene lagos de metano líquido',
       'Los anillos desaparecerán en ~100 millones de años',
+      'Tiene una tormenta hexagonal en su polo norte',
     ],
     moons: 146,
     hasRings: true,
@@ -233,13 +271,18 @@ export const PLANETS_DATA: Omit<Planet, 'angle' | 'rotationAngle'>[] = [
     escapeVelocity: '35.5 km/s',
     dayLength: '10 horas 42 minutos',
     yearLength: '29.46 años terrestres',
+    discoveredBy: 'Conocido desde la antigüedad',
+    emoji: '♄',
+    density: 0.69,
+    magneticField: true,
   },
   {
     id: 'uranus',
     name: 'Uranus',
     nameEs: 'Urano',
     color: '#7de8e8',
-    colorDark: '#3a8888',
+    colorDark: '#2a7070',
+    colorLight: '#b0f5f5',
     radius: 11,
     orbitRadius: 350,
     orbitalPeriod: 84.01,
@@ -259,6 +302,7 @@ export const PLANETS_DATA: Omit<Planet, 'angle' | 'rotationAngle'>[] = [
       'Tiene 13 anillos conocidos',
       'Sus estaciones duran 21 años cada una',
       'Es el planeta más frío del sistema solar (-224°C mínimo)',
+      'Fue descubierto por William Herschel en 1781',
     ],
     moons: 28,
     hasRings: true,
@@ -267,6 +311,11 @@ export const PLANETS_DATA: Omit<Planet, 'angle' | 'rotationAngle'>[] = [
     escapeVelocity: '21.3 km/s',
     dayLength: '17 horas 14 minutos',
     yearLength: '84 años terrestres',
+    discoveredBy: 'William Herschel (1781)',
+    discoveryYear: 1781,
+    emoji: '♅',
+    density: 1.27,
+    magneticField: true,
   },
   {
     id: 'neptune',
@@ -274,6 +323,7 @@ export const PLANETS_DATA: Omit<Planet, 'angle' | 'rotationAngle'>[] = [
     nameEs: 'Neptuno',
     color: '#4166f5',
     colorDark: '#1a2e80',
+    colorLight: '#7090ff',
     radius: 10,
     orbitRadius: 400,
     orbitalPeriod: 164.8,
@@ -293,6 +343,7 @@ export const PLANETS_DATA: Omit<Planet, 'angle' | 'rotationAngle'>[] = [
       'Solo ha sido visitado una vez (Voyager 2, 1989)',
       'Su luna Tritón orbita en dirección contraria',
       'Un año en Neptuno equivale a 165 años terrestres',
+      'Fue descubierto por Johann Galle en 1846',
     ],
     moons: 16,
     hasRings: true,
@@ -301,6 +352,11 @@ export const PLANETS_DATA: Omit<Planet, 'angle' | 'rotationAngle'>[] = [
     escapeVelocity: '23.5 km/s',
     dayLength: '16 horas 6 minutos',
     yearLength: '164.8 años terrestres',
+    discoveredBy: 'Johann Galle (1846)',
+    discoveryYear: 1846,
+    emoji: '♆',
+    density: 1.64,
+    magneticField: true,
   },
 ];
 
@@ -314,6 +370,7 @@ export const SUN_DATA = {
   temperatureCore: '15,000,000°C (núcleo)',
   age: '4,600 millones de años',
   composition: '73% Hidrógeno, 25% Helio',
+  luminosity: '3.828 × 10²⁶ watts',
   description: 'Nuestra estrella. Contiene el 99.86% de toda la masa del sistema solar. La luz del Sol tarda 8 minutos y 20 segundos en llegar a la Tierra.',
   funFacts: [
     'Es una estrella de tamaño mediano',
@@ -321,68 +378,46 @@ export const SUN_DATA = {
     'Su luz tarda 8 min 20 seg en llegar a la Tierra',
     'En 5,000 millones de años se convertirá en una gigante roja',
     'Contiene el 99.86% de la masa del sistema solar',
+    'Viaja a 828,000 km/h alrededor del centro de la galaxia',
   ],
+  emoji: '☀️',
 };
 
-export const QUIZ_QUESTIONS = [
-  {
-    question: '¿Cuál es el planeta más grande del sistema solar?',
-    options: ['Saturno', 'Júpiter', 'Neptuno', 'Urano'],
-    correct: 1,
-    explanation: 'Júpiter es el planeta más grande, con un radio de 69,911 km.',
-  },
-  {
-    question: '¿Qué planeta es conocido como el "Planeta Rojo"?',
-    options: ['Venus', 'Júpiter', 'Marte', 'Mercurio'],
-    correct: 2,
-    explanation: 'Marte es llamado el "Planeta Rojo" por el óxido de hierro en su superficie.',
-  },
-  {
-    question: '¿Cuántos planetas tiene el sistema solar?',
-    options: ['7', '8', '9', '10'],
-    correct: 1,
-    explanation: 'Desde 2006, Plutón fue reclasificado como planeta enano, dejando 8 planetas.',
-  },
-  {
-    question: '¿Qué planeta tiene los anillos más visibles?',
-    options: ['Júpiter', 'Urano', 'Neptuno', 'Saturno'],
-    correct: 3,
-    explanation: 'Saturno tiene los anillos más espectaculares y visibles del sistema solar.',
-  },
-  {
-    question: '¿Cuál es el planeta más cercano al Sol?',
-    options: ['Venus', 'Mercurio', 'Marte', 'Tierra'],
-    correct: 1,
-    explanation: 'Mercurio es el planeta más cercano al Sol, a solo 57.9 millones de km.',
-  },
-  {
-    question: '¿Qué planeta rota de lado?',
-    options: ['Neptuno', 'Saturno', 'Urano', 'Júpiter'],
-    correct: 2,
-    explanation: 'Urano tiene una inclinación axial de 98°, rotando prácticamente de lado.',
-  },
-  {
-    question: '¿Cuál es el planeta más caliente?',
-    options: ['Mercurio', 'Venus', 'Marte', 'Júpiter'],
-    correct: 1,
-    explanation: 'Venus es el más caliente (462°C) debido a su efecto invernadero extremo.',
-  },
-  {
-    question: '¿Cuántas lunas tiene la Tierra?',
-    options: ['0', '1', '2', '3'],
-    correct: 1,
-    explanation: 'La Tierra tiene una sola luna natural, simplemente llamada "la Luna".',
-  },
-  {
-    question: '¿Qué planeta tiene la Gran Mancha Roja?',
-    options: ['Marte', 'Saturno', 'Júpiter', 'Neptuno'],
-    correct: 2,
-    explanation: 'La Gran Mancha Roja de Júpiter es una tormenta gigante activa desde hace siglos.',
-  },
-  {
-    question: '¿Cuánto tarda la luz del Sol en llegar a la Tierra?',
-    options: ['1 segundo', '8 minutos', '1 hora', '1 día'],
-    correct: 1,
-    explanation: 'La luz del Sol tarda aproximadamente 8 minutos y 20 segundos en llegar a la Tierra.',
-  },
+export const SPACE_MISSIONS = [
+  { name: 'Voyager 1', year: 1977, planet: 'jupiter', status: 'active', description: 'El objeto humano más lejano del espacio interestelar', distance: '24,000 M km' },
+  { name: 'Voyager 2', year: 1977, planet: 'neptune', status: 'active', description: 'Única nave que visitó Urano y Neptuno', distance: '20,000 M km' },
+  { name: 'Cassini-Huygens', year: 1997, planet: 'saturn', status: 'ended', description: 'Exploró Saturno y sus lunas durante 13 años', distance: '1,434 M km' },
+  { name: 'Juno', year: 2011, planet: 'jupiter', status: 'active', description: 'Estudia la atmósfera y campo magnético de Júpiter', distance: '778 M km' },
+  { name: 'New Horizons', year: 2006, planet: 'neptune', status: 'active', description: 'Primer sobrevuelo de Plutón (2015)', distance: '7,500 M km' },
+  { name: 'Perseverance', year: 2020, planet: 'mars', status: 'active', description: 'Busca signos de vida antigua en Marte', distance: '227 M km' },
+  { name: 'James Webb', year: 2021, planet: 'earth', status: 'active', description: 'Telescopio espacial más potente, en punto L2', distance: '1.5 M km' },
+  { name: 'Parker Solar Probe', year: 2018, planet: 'mercury', status: 'active', description: 'La nave más cercana al Sol jamás enviada', distance: '6 M km' },
+  { name: 'MESSENGER', year: 2004, planet: 'mercury', status: 'ended', description: 'Primer orbitador de Mercurio', distance: '57 M km' },
+  { name: 'Europa Clipper', year: 2024, planet: 'jupiter', status: 'active', description: 'Explorará la luna Europa de Júpiter', distance: '628 M km' },
+  { name: 'Mars Express', year: 2003, planet: 'mars', status: 'active', description: 'Orbitador europeo de Marte', distance: '227 M km' },
+  { name: 'Lucy', year: 2021, planet: 'jupiter', status: 'active', description: 'Explorará asteroides troyanos de Júpiter', distance: '778 M km' },
 ];
+
+export const QUIZ_QUESTIONS = [
+  { question: '¿Cuál es el planeta más grande del sistema solar?', options: ['Saturno', 'Júpiter', 'Neptuno', 'Urano'], correct: 1, explanation: 'Júpiter es el planeta más grande, con un radio de 69,911 km. ¡Podría contener 1,300 Tierras!' },
+  { question: '¿Qué planeta es conocido como el "Planeta Rojo"?', options: ['Venus', 'Júpiter', 'Marte', 'Mercurio'], correct: 2, explanation: 'Marte es llamado el "Planeta Rojo" por el óxido de hierro (herrumbre) en su superficie.' },
+  { question: '¿Cuántos planetas tiene el sistema solar?', options: ['7', '8', '9', '10'], correct: 1, explanation: 'Desde 2006, Plutón fue reclasificado como planeta enano, dejando 8 planetas oficiales.' },
+  { question: '¿Qué planeta tiene los anillos más visibles?', options: ['Júpiter', 'Urano', 'Neptuno', 'Saturno'], correct: 3, explanation: 'Saturno tiene los anillos más espectaculares, compuestos de miles de millones de partículas de hielo y roca.' },
+  { question: '¿Cuál es el planeta más cercano al Sol?', options: ['Venus', 'Mercurio', 'Marte', 'Tierra'], correct: 1, explanation: 'Mercurio es el planeta más cercano al Sol, a solo 57.9 millones de km.' },
+  { question: '¿Qué planeta rota de lado?', options: ['Neptuno', 'Saturno', 'Urano', 'Júpiter'], correct: 2, explanation: 'Urano tiene una inclinación axial de 98°, rotando prácticamente de lado.' },
+  { question: '¿Cuál es el planeta más caliente?', options: ['Mercurio', 'Venus', 'Marte', 'Júpiter'], correct: 1, explanation: 'Venus es el más caliente (462°C) debido a su efecto invernadero extremo, ¡más que Mercurio!' },
+  { question: '¿Cuántas lunas tiene la Tierra?', options: ['0', '1', '2', '3'], correct: 1, explanation: 'La Tierra tiene una sola luna natural, simplemente llamada "la Luna".' },
+  { question: '¿Qué planeta tiene la Gran Mancha Roja?', options: ['Marte', 'Saturno', 'Júpiter', 'Neptuno'], correct: 2, explanation: 'La Gran Mancha Roja de Júpiter es una tormenta gigante activa desde hace al menos 400 años.' },
+  { question: '¿Cuánto tarda la luz del Sol en llegar a la Tierra?', options: ['1 segundo', '8 minutos', '1 hora', '1 día'], correct: 1, explanation: 'La luz del Sol tarda aproximadamente 8 minutos y 20 segundos en recorrer 149.6 millones de km.' },
+  { question: '¿Qué sonda fue la primera en salir del sistema solar?', options: ['Voyager 1', 'Pioneer 10', 'New Horizons', 'Cassini'], correct: 0, explanation: 'Voyager 1 cruzó la heliopausa en 2012, convirtiéndose en el primer objeto humano en el espacio interestelar.' },
+  { question: '¿Cuál es el volcán más grande del sistema solar?', options: ['Everest (Tierra)', 'Mauna Kea (Tierra)', 'Olympus Mons (Marte)', 'Maxwell Montes (Venus)'], correct: 2, explanation: 'Olympus Mons en Marte tiene 21.9 km de alto, casi 3 veces el Monte Everest.' },
+  { question: '¿Qué planeta podría flotar en agua?', options: ['Júpiter', 'Saturno', 'Urano', 'Neptuno'], correct: 1, explanation: 'Saturno tiene una densidad de 0.69 g/cm³, menor que la del agua (1 g/cm³).' },
+  { question: '¿Quién descubrió Urano?', options: ['Galileo', 'William Herschel', 'Kepler', 'Newton'], correct: 1, explanation: 'William Herschel descubrió Urano en 1781 usando un telescopio que él mismo construyó.' },
+  { question: '¿Cuál es el planeta con los vientos más fuertes?', options: ['Júpiter', 'Saturno', 'Urano', 'Neptuno'], correct: 3, explanation: 'Neptuno tiene vientos de hasta 2,100 km/h, los más rápidos del sistema solar.' },
+];
+
+export const HABITABLE_ZONE = {
+  innerEdge: 0.95, // AU
+  outerEdge: 1.37, // AU
+  description: 'La zona habitable o "zona Ricitos de Oro" es la región alrededor de una estrella donde las condiciones son adecuadas para la existencia de agua líquida en la superficie.',
+};
